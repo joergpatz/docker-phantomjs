@@ -18,3 +18,8 @@ Usage inside the container
 Remote WebDriver
 
 * `docker run -d -p 8910:8910 phantom phantomjs --webdriver=8910`
+
+
+## Infinality for Debian
+
+Better font rendering in Linux with Infinality <https://wiki.debian.org/Fonts#Infinality_for_Debian>

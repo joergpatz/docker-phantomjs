@@ -1,9 +1,11 @@
 FROM buildpack-deps:jessie
-MAINTAINER Visioneers
+MAINTAINER Joerg Patzer <joerg.patzer@me.com>
 
 # Warning: Compiling PhantomJS from source takes a long time, mainly due to thousands of files in the WebKit module.
 
 ENV PHANTOM_VERSION 2.0.0
+
+COPY ./infinality /tmp
 
 RUN sed -i "s/jessie main/jessie main contrib/" /etc/apt/sources.list \
     && apt-get update \
@@ -30,7 +32,9 @@ RUN sed -i "s/jessie main/jessie main contrib/" /etc/apt/sources.list \
     && cd /tmp/phantomjs-${PHANTOM_VERSION} \
     && ./build.sh --confirm \
     && mv bin/phantomjs /usr/local/bin \
-    && cd \
+    && cd /tmp \
+    && dpkg -i *-infinality*.deb \
+    && printf "4\n" | /etc/fonts/infinality/infctl.sh setstyle \
     && apt-get purge --auto-remove -y \
         build-essential \
         curl \
