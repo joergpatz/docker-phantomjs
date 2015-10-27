@@ -48,6 +48,8 @@ RUN sed -i "s/jessie main/jessie main contrib/" /etc/apt/sources.list \
     && apt-get clean \
     && rm -rf /tmp/* /var/lib/apt/lists/*
 
+WORKDIR /tmp
+
 # expose port for webdriver option
 EXPOSE 8910
 

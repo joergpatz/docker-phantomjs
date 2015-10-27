@@ -5,19 +5,20 @@ It can also be used via WebDriver for web system testing.
 
 Start PhantomJS in REPL
 
-* `docker run --rm phantom`
+* `docker run --rm joergpatz/phantomjs`
 
 Usage as executable
 
-* `docker run --rm phantom --help`
+* `docker run --rm joergpatz/phantomjs --help`
 
 Usage inside the container
 
-* `docker run --rm -v "<absolute path>/src:/src" -it --entrypoint /bin/bash phantom`
+* ``docker run --rm -v `pwd`/src:/src -it --entrypoint /bin/bash joergpatz/phantomjs``
+* ``docker run --rm -v `pwd`/src:/tmp joergpatz/phantomjs webshoot.js``
 
 Remote WebDriver
 
-* `docker run -d -p 8910:8910 phantom phantomjs --webdriver=8910`
+* `docker run -d -p 8910:8910 joergpatz/phantomjs --webdriver=8910`
 
 
 ## Infinality for Debian
