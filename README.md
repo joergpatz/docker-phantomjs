@@ -13,7 +13,7 @@ Usage as executable
 
 Usage inside the container
 
-* ``docker run --rm -v `pwd`/src:/src -it --entrypoint /bin/bash joergpatz/phantomjs``
+* ``docker run --rm -v `pwd`/src:/tmp -it --entrypoint /bin/bash joergpatz/phantomjs``
 * ``docker run --rm -v `pwd`/src:/tmp joergpatz/phantomjs webshoot.js``
 
 Remote WebDriver
