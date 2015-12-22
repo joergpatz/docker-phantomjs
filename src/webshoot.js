@@ -1,13 +1,25 @@
-var page = require('webpage').create();
-page.viewportSize = { width: 320, height: 480 };
-page.open('http://faz.net', function (status) {
-    if (status !== 'success') {
-        console.log('Unable to access the network!');
-    } else {
-        page.evaluate(function () {
+"use strict";
+var page = require('webpage').create(),
+    system = require('system'),
+    address, output;
 
-        });
-        page.render('./tmp/faznews.png');
-    }
-    phantom.exit();
-});
+if (system.args.length < 3 || system.args.length > 5) {
+    console.log('Usage: webshoot.js URL filename');
+    phantom.exit(1);
+} else {
+    address = system.args[1];
+    output = system.args[2];
+    page.viewportSize = { width: 1024, height: 768 };
+
+    page.open(address, function (status) {
+        if (status !== 'success') {
+            console.log('Unable to load the address!');
+            phantom.exit(1);
+        } else {
+            window.setTimeout(function () {
+                page.render(output);
+                phantom.exit();
+            }, 200);
+        }
+    });
+}
