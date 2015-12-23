@@ -30,7 +30,7 @@ RUN sed -i "s/jessie main/jessie main contrib/" /etc/apt/sources.list \
         ttf-mscorefonts-installer \
     && curl -L https://github.com/ariya/phantomjs/archive/${PHANTOM_VERSION}.tar.gz | tar -xzC /tmp \
     && cd /tmp/phantomjs-${PHANTOM_VERSION} \
-    && ./build.sh --confirm --silent --jobs 2 \
+    && ./build.sh --confirm --silent --jobs 1 \
     && mv bin/phantomjs /usr/local/bin \
     && cd /tmp \
     && dpkg -i *-infinality*.deb \
