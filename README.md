@@ -12,7 +12,7 @@ Usage as executable
 * `docker run --rm joergpatz/phantomjs --help`
 * ``docker run --rm -v `pwd`:/tmp joergpatz/phantomjs webshoot.js http://info.cern.ch/hypertext/WWW/TheProject.html webshot.png``
 
-Usage inside the container
+Usage via container bash
 
 * ``docker run --rm -v `pwd`:/tmp -it --entrypoint /bin/bash joergpatz/phantomjs``
 
